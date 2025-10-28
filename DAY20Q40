@@ -1,0 +1,37 @@
+// Write a program to find the 1’s complement of a binary number and print it.
+
+#include <stdio.h>
+#include <string.h> 
+#define MAX_BITS 32 
+
+int main() {
+    char binary[MAX_BITS + 1]; 
+    char onesComplement[MAX_BITS + 1];
+     int isValidBinary = 1; 
+
+    printf("Enter a binary number (max %d bits): ", MAX_BITS);
+    scanf("%s", binary);
+
+    int len = strlen(binary);
+    for (i = 0; i < len; i++) {
+        if (binary[i] == '0') {
+            onesComplement[i] = '1';
+        } else if (binary[i] == '1') {
+            onesComplement[i] = '0';
+        } else {
+            isValidBinary = 0;
+            break; // Exit the loop
+        }
+    }
+
+    onesComplement[len] = '\0';
+
+    if (isValidBinary) {
+        printf("Original binary number: %s\n", binary);
+        printf("1's complement: %s\n", onesComplement);
+    } else {
+        printf("Error: Invalid binary number entered. Please enter only '0's and '1's.\n");
+    }
+
+    return 0;
+}
