@@ -1,0 +1,37 @@
+// Write a program to swap the first and last digit of a number.
+
+#include <stdio.h>
+#include <math.h> // Required for pow() and log10()
+
+int main() {
+    int num, swappedNum;
+    int firstDigit, lastDigit;
+    int digits = 0; // To count the number of digits
+    int tempNum;
+
+    printf("Enter any number: ");
+    scanf("%d", &num);
+    if (num >= 0 && num <= 9) {
+        printf("Number after swapping first and last digit: %d\n", num);
+        return 0;
+    }
+    lastDigit = num % 10;
+    tempNum = num;
+    while (tempNum != 0) {
+        firstDigit = tempNum; 
+        tempNum /= 10;
+        digits++;
+    }
+    int powerOfTen = 1;
+    for (int i = 0; i < digits - 1; i++) {
+        powerOfTen *= 10;
+    }
+    swappedNum = lastDigit * powerOfTen; 
+    swappedNum += (num % powerOfTen) - lastDigit; 
+    swappedNum += firstDigit; 
+
+    printf("Original number = %d\n", num);
+    printf("Number after swapping first and last digit: %d\n", swappedNum);
+
+    return 0;
+}
