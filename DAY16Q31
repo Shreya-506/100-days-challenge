@@ -1,0 +1,31 @@
+// Write a program to take a number as input and print its equivalent binary representation.
+
+#include <stdio.h>
+
+int main() {
+    int decimalNum, i;
+    int binaryArray[32]; 
+
+    printf("Enter a decimal number: ");
+    scanf("%d", &decimalNum);
+
+    if (decimalNum == 0) {
+        printf("Binary representation: 0\n");
+        return 0;
+    }
+
+    i = 0;
+    while (decimalNum > 0) {
+        binaryArray[i] = decimalNum % 2;
+        decimalNum /= 2;
+        i++;
+    }
+
+    printf("Binary representation: ");
+    for (int j = i - 1; j >= 0; j--) {
+        printf("%d", binaryArray[j]);
+    }
+    printf("\n");
+
+    return 0;
+}
